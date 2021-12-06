@@ -52,3 +52,4 @@
 
 #define STDC_HEADERS 1
 
+#define HAVE_POLL_H 1

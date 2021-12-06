@@ -16,6 +16,8 @@ endif ()
 # generate src/iperf_config.h
 configure_file(${CMAKE_SOURCE_DIR}/../assets/iperf_config.h.in ${CMAKE_BINARY_DIR}/src/iperf_config.h)
 
+
+
 ###################################
 
 include_directories(${IPERF_SRC}/src)
@@ -30,18 +32,20 @@ add_library( # build libiperf.so
         STATIC
 
         ${IPERF_SRC}/src/cjson.c
+        ${IPERF_SRC}/src/dscp.c
         ${IPERF_SRC}/src/iperf_api.c
-        ${IPERF_SRC}/src/iperf_error.c
+        ${IPERF_SRC}/src/iperf_auth.c
         ${IPERF_SRC}/src/iperf_client_api.c
+        ${IPERF_SRC}/src/iperf_error.c
         ${IPERF_SRC}/src/iperf_locale.c
         ${IPERF_SRC}/src/iperf_server_api.c
         ${IPERF_SRC}/src/iperf_tcp.c
+        ${IPERF_SRC}/src/iperf_time.c
         ${IPERF_SRC}/src/iperf_udp.c
         ${IPERF_SRC}/src/iperf_sctp.c
         ${IPERF_SRC}/src/iperf_util.c
         ${IPERF_SRC}/src/net.c
         ${IPERF_SRC}/src/tcp_info.c
-        ${IPERF_SRC}/src/tcp_window_size.c
         ${IPERF_SRC}/src/timer.c
         ${IPERF_SRC}/src/units.c
         )
